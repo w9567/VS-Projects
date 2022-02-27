@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <style>
+        img{
+            width: 300px;
+            width: 300px;
+        }
+    </style>
+    <body>
+        <div id="result">
+            <img :src="imgSrc[index]" alt="">
+            <a href="javascript:void(0)" @click="prev">-</a>
+            <a href="javascript:void(0)" @click="next">+</a>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script>
+            var app=new Vue({
+                el:"#result",
+                data:{
+                    imgSrc:[
+                        "../images/1.jpg",
+                        "../images/6.jpg",
+                        "../images/5.jpg",
+                        "../images/4.jpg",
+                        "../images/3.jpg",
+                        "../images/2.jpg"
+                        
+
+                    ],
+                    index:0
+                },
+                methods:{
+                    prev:function(){
+                        this.index--;
+                    },
+                    next:function(){
+                        this.index++;
+                    }
+                }
+
+            })
+        </script>
+    </body>
+</html>

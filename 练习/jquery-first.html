@@ -1,0 +1,30 @@
+<html>
+<head>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("p").click(function(){
+        $(this).hide();
+        
+    });
+});
+</script>
+<style>
+    body{
+        background-color: #ccc;
+    }
+    #text{
+        color: #ccc;
+        text-shadow: 1px 1px 1px #000, -1px -1px 1px #fff;
+        font-size: 80px;
+    }   
+</style>
+</head>
+<body>
+    
+    <p>点击我会消失！</p>
+    <p>点击我！</p>
+    <p >再点击我！</p>
+    <div id="text">三件大事几点睡大</div>
+</body>
+</html>

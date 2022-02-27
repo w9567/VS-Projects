@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //new Set()
+        var arr=[1,9,5,3,11,8,4,6,6,8];
+        let newarr=new Set(arr)
+        console.log(newarr,Array.from(newarr))
+
+        //indexOf
+        function fun1(arr){
+            let brr=[]
+            for(let i=0;i<arr.length;i++){
+                if(brr.indexOf(arr[i])==-1){
+                    //indexOf等于-1代表没有找到这个歌东西的下标
+                    //所以就代表他不是重复的
+                    brr.push(arr[i])
+                }
+            }
+            return brr;
+        }
+        console.log(fun1(arr))
+
+        //sort
+        function fun2(arr){
+            let brr=arr.sort(function(a,b){return a-b});
+            console.log(brr)
+            var crr=[brr[0]]
+            for(let i=1;i<brr.length;i++){
+                if(brr[i]!=brr[i-1]){
+                    crr.push(brr[i])
+                }
+            }
+            return crr
+        }
+        console.log(fun2(arr))
+    </script>
+</body>
+</html>

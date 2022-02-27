@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>FirstVue</title>
+    </head>
+    <style>
+        #result{
+            width: 150px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+    <body>
+        <div id="result">{{ message }}</div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script>
+            var app=new Vue({
+                el:'#result',
+                data:{
+                    message:"hello vue!"
+                }
+            })
+        </script>
+    </body>
+</html>

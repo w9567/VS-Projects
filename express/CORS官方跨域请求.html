@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <title>CORS跨域</title>
+    <style>
+        #result{
+            width: 150px;
+            height: 200px;
+            border: 1px solid red;
+
+        }
+    </style>
+    <body>
+        <button>发送请求</button>
+        <div id="result"></div>
+        <script>
+            const btn=document.querySelector('button');
+            const result=document.getElementById('result');
+            btn.onclick=function(){
+                const x=new XMLHttpRequest();
+                x.open('GET','http:/127.0.0.1:8000/CORS-server');
+                x.send();
+                x.onreadystatechange=function(){
+                    if(x.readyState===4){
+                        if(x.status>=200 && x.status<300){
+                            console.log(x.response);
+                        }
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

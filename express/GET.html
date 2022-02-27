@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>ajax</title>
+        <style>
+            
+            #dd{
+                width: 100px;
+                height: 200px;
+                border: 1px solid rgb(109, 20, 226);
+            }
+        </style>
+    </head>
+    
+    <body>
+        <button>点击发送请求</button>
+        <div id="dd"></div>
+
+        <script>
+            const btn =document.getElementsByTagName("button")[0];
+            const result=document.getElementById("dd");
+            console.log(result);
+            btn.onclick =function(){
+                const  xhr=new XMLHttpRequest();
+                //初始化，设置请求方法和url
+                xhr.open('GET','http://127.0.0.1:8000/server');
+                //发送
+                xhr.send();
+                //事件绑定，处理服务端返回的端口
+                //readystate 是xhr 对象中的属性  表示状态0,1,2,3,4
+                // 0 未初始化  最开始   
+                // 1   open方法已经调用完毕
+                // 2   send方法已经调用完毕
+                // 3   服务端返回部分结果
+                // 4   服务端返回所有的结果
+    
+                xhr.onreadystatechange=function(){
+                    if(xhr.readyState===4){
+                        //判断响应状态码 200 404 403 401 500
+                        //2xx即为成功（2开头即为成功）
+                        if(xhr.status>=200 &&xhr.status<300){
+                            //处理结果  行 头 空行 体
+                            
+                            console.log(xhr.status);//状态码
+                            console.log(xhr.statusText);//状态字符串
+                            console.log(xhr.getAllResponseHeaders());//所有响应头
+                            console.log(xhr.response);//响应体
+                            result.innerHTML =xhr.response;
+                            console.log(result);
+                        }else{
+
+                        }
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

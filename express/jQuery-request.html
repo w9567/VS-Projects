@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>jQuery-request</title>
+        <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <button>GET</button>
+        <button>POST</button>
+        <button>通用型方法ajax</button>
+        <script>
+            $('button').eq(0).click(function(){
+                $.get('http://127.0.0.1:8000/jquery-request',{a:100,b:200},function(data){
+                    console.log(data);
+                },'json');
+            });
+            $('button').eq(1).click(function(){
+                $.post('http://127.0.0.1:8000/jquery-request',{a:100,b:200},function(data){
+                    console.log(data);
+                },'json');
+            });
+            $('button').eq(2).click(function(){
+                $.ajax({
+                    url: 'http://127.0.0.1:8000/off',
+                    data:{a:100,b:200},
+                    type:'POST',
+                    dataType:'json',
+                    //成功回调
+                    success:function(data){
+                        console.log(data);
+                    },
+                    //失败回调
+                    timeout:2000,
+                    error: function(){
+                        console.log('超时出错啦！')
+                    }
+
+
+                }).then(response=>{
+                    console.log(response.data);
+                })
+            })
+            
+        </script>
+    </body>
+</html>

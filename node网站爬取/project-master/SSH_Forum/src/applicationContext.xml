@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+	<bean name="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="jdbcUrl" value="jdbc:mysql:///ssh_forum"></property>
+		<property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+		<property name="user" value="root"></property>
+		<property name="password" value="root"></property>
+	</bean>
+
+
+	<!-- 配置sessionFactory -->
+	<bean name="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+			</props>
+		</property>
+		<property name="mappingDirectoryLocations" value="classpath:com/jiguiyan/domain"></property>	
+		
+	</bean>
+
+
+	<!-- 配置事务的核心管理器 -->
+	<bean name="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<!-- 通知 -->
+	<tx:advice id="advice" transaction-manager="transactionManager" >
+		<tx:attributes>
+			<tx:method name="*"/>
+		</tx:attributes>
+	</tx:advice>
+	
+
+	<!-- 织入 -->
+	<aop:config>
+		<!-- 切入点 -->
+		<aop:pointcut expression="execution(* com.jiguiyan.service.*.*(..))" id="pc"/>
+		<!-- 配置切面 -->
+		<aop:advisor advice-ref="advice" pointcut-ref="pc"/>
+	</aop:config>
+	
+	
+	<!-- 配置Action -->
+	<bean name="userAction" class="com.jiguiyan.web.UserAction" scope="prototype">
+		<property name="userService" ref="userService"></property> 
+	</bean>
+	<bean name="pasteAction" class="com.jiguiyan.web.PasteAction" scope="prototype">
+		<property name="pasteService" ref="pasteService"></property>
+		<property name="answerService" ref="answerService"></property>
+	</bean>
+	<bean name="getDataAction" class="com.jiguiyan.web.GetDataAction" scope="prototype">
+		<property name="pasteService" ref="pasteService"></property>
+		<property name="userService" ref="userService"></property>
+	</bean>
+	<bean name="answerAction" class="com.jiguiyan.web.AnswerAction" scope="prototype">
+		<property name="answerService" ref="answerService"></property>
+		<property name="pasteService" ref="pasteService"></property>
+	</bean>
+	<bean name="praiseAction" class="com.jiguiyan.web.PraiseAction" scope="prototype">
+		<property name="answerService" ref="answerService"></property>
+		<property name="praiseService" ref="praiseService"></property>
+	</bean>
+	
+	
+	
+	
+	<!-- 配置Service -->
+	<bean name="userService" class="com.jiguiyan.service.UserService">
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	<bean name="pasteService" class="com.jiguiyan.service.PasteService">
+		<property name="pasteDao" ref="pasteDao"></property>
+		<property name="userDao" ref="userDao"></property>
+		<property name="answerDao" ref="answerDao"></property>
+	</bean>
+	<bean name="answerService" class="com.jiguiyan.service.AnswerService">
+		<property name="answerDao" ref="answerDao"></property>
+		<property name="pasteDao" ref="pasteDao"></property>
+	</bean>
+	<bean name="praiseService" class="com.jiguiyan.service.PraiseService">
+		<property name="praiseDao" ref="praiseDao"></property>
+	</bean>
+	
+	
+	
+	
+	<!-- 配置Dao -->
+	<bean name="userDao" class="com.jiguiyan.dao.UserDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean name="pasteDao" class="com.jiguiyan.dao.PasteDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean name="answerDao" class="com.jiguiyan.dao.AnswerDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean name="praiseDao" class="com.jiguiyan.dao.PraiseDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+</beans>

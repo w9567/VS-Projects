@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <style>
+        img{
+            
+            width: 100px;
+            height: 100px;
+        }
+        img[name="animate"]{
+            position: absolute ;
+        }
+        .d4, .d3 {
+            padding: 5px;
+            background-color:skyblue;
+            border:solid 1px #c3c3c3;
+        }
+        .d4{
+            padding: 50px;
+            
+        }
+        .animate{
+            width: 100px;
+            height: 100px;
+            border: solid 1px red;
+        }
+    </style>
+    <body>
+        <div class="d1">淡入淡出效果</div>
+        <div class="d2"><img src="../images/1.jpg" /></div>
+        <div class="d3">滑动效果</div>
+        <div class="d4">大框架的卡萨丁卡拉爱的骄傲可视对讲阿卡</div>
+        <button>动画效果</button>
+        <div class="animate"><img name="animate" src="../images/1.jpg"/></div>
+        <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+        <script>
+            $(function(){
+                $(".d1").click(function(){
+                    $(".d2").fadeToggle(1000);
+                });
+                $(".d3").click(function(){
+                    $(".d4").slideToggle(1000);
+                    // console.log("滑动效果");
+                });
+                $("button").click(function(){
+                    $("img[name='animate']").animate({
+                        width:'150px',
+                        height:'150px',
+                        left:'+100px'
+                    })
+                });
+            });
+
+        </script>
+    </body>
+</html> 

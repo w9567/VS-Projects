@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title></title>
+    </head>
+    <body>
+        <button id="b1">隐藏</button>
+        <button id="b2">显示</button>
+        <button id="b3">显示/隐藏</button>
+        <div class="d1">代收点哈斯和大伙的</div>
+        <div class="d2">代收点哈斯和大伙的</div>
+        
+        <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+        <script>
+            $(function(){
+                $("#b1").click(function() {
+                   $(".d1").hide(1000); 
+                   console.log("隐藏了");
+                });
+                $("#b2").click(function() {
+                   $(".d1").show(1000); 
+                   console.log("显示了");
+                });
+                $("#b3").click(function() {
+                   $(".d2").toggle(1000); 
+                   console.log("1111");
+                });
+            });
+        </script> 
+    </body>
+</html>

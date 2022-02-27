@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		
+	</head>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        line{
+            width: 1px;
+            height: 30px;
+            border-top: 1px solid red;
+            border-bottom: 1px solid red;
+        }
+        .nav{
+            width: 400px;
+            height: 100px;
+            
+        }
+        a{
+            
+            width: 100px;
+            height: 100%;
+            font-size: 12px;
+            text-align: center;
+            line-height: 100px;
+            border-bottom: 1px solid black;
+            text-decoration: none;
+        }
+        .trans{
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            color: #000000;
+            border-radius: 15%;
+            background-color: silver;
+            transform: all 1s linear;
+        }
+        .trans:hover{
+            color: white;
+            background-color: green;
+        }
+        .transf3d{
+            width: 500px;
+            height: 180px;
+            /*perspective: 100px;*/
+            margin: 50px auto;
+            
+        }
+        .tr{
+            float: left;
+            width: 100px;
+            height: 90px;
+            position: relative;
+            
+            transform-style: preserve-3d;
+            transition: 1.5s;
+            margin: auto 10px;
+            
+        }
+        .tr:hover{
+            transform: rotateY(180deg);
+        }
+        .trimg{
+            width: 100px;
+            height: 90px;
+            position: absolute;
+        }
+        .front{
+            border: 1px solid red;
+            
+        }
+        .back{
+            border: 1px solid #C0C0C0;
+            transform: rotateY(180deg);
+            background-color: deepskyblue;
+            
+        }
+        h1{
+            font-size: 20px;
+        }
+        .hr1{
+            width: 80%;
+            margin-right: 0;
+            
+        }
+        .inp{
+            overflow: hidden;
+        }
+        label{
+            width: 120px;
+            float: left;
+            text-align: right;
+        }
+        /* input{
+            
+        } */
+        img{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+	<body>
+		<line>11</line>
+		<div class="nav">
+			<a href="#">1</a>
+			<a href="#">2</a>
+			<a href="#">3</a>
+			<a href="#">4</a>
+		</div>
+		<div class="trans">css3过渡</div>
+		<div class="transf3d">
+			<div class="tr">
+				<div class="trimg front">
+					<img src="../images/1.jpg" alt="">
+				</div>
+				<div class="trimg back">
+					<h1>随便吧</h1>
+				</div>
+			</div>
+			<div class="tr">
+				<div class="trimg front">
+					<img src="../images/1.jpg"/>
+				</div>
+				<div class="trimg back">
+					<h1>随便1</h1>
+				</div>
+			</div>
+			<div class="tr">
+				<div class="trimg front">
+					<img src="../images/1.jpg"/>
+				</div>
+				<div class="trimg back">
+					<h1>随便2</h1>
+				</div>
+			</div>
+			<div class="tr">
+				<div class="trimg front">
+					<img src="../images/1.jpg"/>
+				</div>
+				<div class="trimg back">
+					<h1>随便3</h1>
+				</div>
+			</div>
+		</div>
+		<hr />
+		<p>abcdefg网大<del>师级的开始</del>的k<ins>ssss</ins>kkk</p>
+
+		<form method="POST" action="">
+            <div class="inp">
+				<label>请输入账号:</label>
+				<input type="text" name="username"  id="username"/><br/>
+            </div>
+            <div class="inp">   
+				<label>请再次输入密码:</label>
+				<input type="password" name="password"  id="password"/>	
+            </div> 
+		</form>				
+	</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通过锚点target实现手风琴</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: sandybrown;
+        }
+        a{
+            display: block;
+        }
+        span{
+            display: none;
+        }
+        span:target{
+            display: block;
+        }
+        
+        li:nth-child(2n){
+            color: sienna;
+        }
+        li:nth-child(odd){
+            color: rgb(187, 255, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <a href="#span1">11111</a>
+        <span id="span1" >我是第一个</span>
+        <a href="#span2">22222</a>
+        <span id="span2" >我是第二个</span>
+        <a href="#span3">33333</a>
+        <span id="span3" >我是第三个</span>
+        
+    </div>
+    <ul>
+        <li>1111111111</li>
+        <li>2222222222</li>
+        <li>33333333333</li>
+        <li>444444444444</li>
+        <li>55555555555</li>
+        <li>6666666666666</li>
+    </ul>
+</body>
+</html>

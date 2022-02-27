@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping package="com.guiyan.domain">
+	<class name="Paste" table="paste">
+		<id name="id">
+			<generator class="uuid"></generator>
+		</id>
+		
+		<property name="title" column="title"></property>
+		<property name="content" column="content"></property>
+		<property name="offer" column="offer"></property>
+		<property name="ansnum" column="ansnum"></property>
+		<property name="createtime" column="createtime"></property>
+		<property name="glanceover" column="glanceover"></property>
+		<property name="solve" column="solve"></property>
+		<property name="isdelete" column="isdelete"></property>
+	</class>
+</hibernate-mapping>

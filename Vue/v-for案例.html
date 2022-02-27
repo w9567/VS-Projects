@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>v-for案例</title>
+        
+    </head>
+    <body>
+        <div id="app" >
+            <ul>
+                <li v-for="(item,index) in arr">{{index+1}}列出的{{item}}</li>
+            </ul>
+        </div>
+        <script src="vue.js"></script>
+        <script>
+            var app =new Vue({
+                el:"#app",
+                data:{
+                    arr:['数据1','shuju2','shuju3']
+                }
+            })
+        </script>
+    </body>
+</html>

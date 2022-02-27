@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>发送请求</button>
+    <div id="result"></div>
+    <script>
+        const result =document.getElementById("result");
+        const btn=document.querySelector("button");
+        const name=1;
+        btn.addEventListener('click',function(){
+            const xhr=new XMLHttpRequest();
+            console.log(name);
+            xhr.open('POST','http://127.0.0.1:8000/sql-server?id='+name);
+            xhr.send();
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState=4&&xhr.status==200){
+                    console.log(xhr.response);
+
+                }
+            }
+        })
+        
+
+    </script>
+</body>
+</html>

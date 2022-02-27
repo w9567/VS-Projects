@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>取消请求</title>
+    </head>
+    
+    <body>
+        <button>发送请求</button>
+        
+        
+        <script>
+            const btn =document.querySelectorAll('button');
+            let x=null;
+            let issending=false;
+            
+            btn[0].onclick=function(){
+                if(issending) x.abort();
+                x =new XMLHttpRequest();
+                issending=true;
+                x.open('POST','http://127.0.0.1:8080/off');
+                x.send();
+                x.onreadystatechange=function(){
+                    if(x.readystate===4){
+                        issending=false;
+                    }
+                }
+            }
+            
+        </script>
+    </body>
+</html>

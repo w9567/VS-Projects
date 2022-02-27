@@ -1,0 +1,184 @@
+.a{
+	width:auto;
+	
+}
+.b{
+	
+	width:auto;
+	height:600px;
+	
+	background: url(../images/1.jpg);
+	color:#ff0000;
+	transition:color 1s;
+	-moz-transition:color 1s;
+	-webkit-transition:color 1s;
+	-o-transition:color  1s;
+	
+	text-shadow:0 0 20px #ffffff;
+	line-height:300px;
+	text-align:center;
+	
+}
+.b:hover{
+	color:#000000;
+}
+
+
+
+
+
+
+
+
+
+*{
+    margin:0;
+    padding:0;
+}
+
+i{
+    font-style: normal;
+}
+a{
+    text-decoration: none;
+}
+input{
+    outline: none;
+    border:none;
+
+    
+}
+
+html,body{
+    width:100%; 
+     background-color: #efefef;
+    font: 14px/150% tahoma,arial,Microsoft YaHei,Hiragino Sans GB,"\u5b8b\u4f53",sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #666;
+}
+
+.logo{
+	width: 160px;
+    height:50px;
+    background: url(../img/icon.png) no-repeat;
+    position: absolute;
+    top:20px;
+    left:20px;
+}
+.desc{
+	font-size: 18px;
+    line-height: 34px;
+    border-left: 1px solid #ccc;
+    position: absolute;
+    left: 200px;
+    top:28px;
+    padding-left: 20px;
+    font-weight:bold;
+}
+header{
+	width:100%;
+    height: 110px;
+    box-shadow: 10px 10px 10px rgba(111,111,111,.5);
+    position: relative;
+}
+
+.sec{
+	width: 1000px;
+	margin: 0px auto;
+	background-color: white;
+	
+}
+
+form{
+	width: 400px;
+	margin: auto;
+	padding-top: 100px;
+	padding-bottom: 100px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.register-box{
+	border: 1px solid #ddd;
+    margin-bottom: 32px;
+}
+.register-box label{
+	height: 52px;
+    line-height: 25px;
+    padding-left: 20px;
+    display: inline-block;
+}
+.register-box input{
+	width: 190px;
+    height: 19px;
+    padding-bottom: 11px;
+    padding-left: 20px;
+    padding-top: 16px;
+    font-size: 14px;
+    color: #666;
+    font-family: "Microsoft YaHei","Hiragino Sans GB";
+}
+.register-box .tips{
+	position: absolute;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.register-box .username_label{
+	word-spacing: 10px;
+}
+
+.register-box .other_label{
+	word-spacing: 2px;
+}
+
+.register-box span{
+    display: inline-block;
+    width: 77px;
+    height: 52px;
+    border-right: 1px solid #ddd;
+}
+.register-box .phone{
+	padding-left: 18px;
+}
+
+#code{
+	display: inline-block;
+    width: 100px;
+    height: 46px;
+    vertical-align: middle;
+    background-color: black;
+    font-size: 25px;
+    color: #fff;
+    text-align: center;
+    line-height: 46px;
+}
+
+.arguement{
+	margin-bottom: 58px;
+}
+.arguement input{
+	vertical-align: middle;
+}
+.arguement a{
+	color: #38f;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.submit_btn button{
+	width: 100%;
+    height: 54px;
+    color: #fff;
+    background: #5f3ad0;
+    border: 0;
+    font-size: 16px;
+    font-family: "Microsoft YaHei","Hiragino Sans GB";
+}
+
+.img-group{
+	
+	position:relative;
+	display:inline-block;
+}
+

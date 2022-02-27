@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <body>
+        <div id="result"></div>
+        <script type="text/babel">
+            class Person{
+                constructor(name,age){
+                    this.name=name,
+                    this.age=age
+                }
+                speak(){
+                    console.log(`我叫${this.name}我现在${this.age}岁了`)
+                }
+            }
+            class Student extends Person{
+                constructor(name,age,title){
+                    super(name,age),
+                    this.title=title
+                }
+            }
+            // const p1=new Person('王运炜','18');
+            // const p2=new Person('刘长涛','19');
+            const p3=new Student('沈煌','18','舍员1')
+            // console.log(p1);
+            // console.log(p2);
+            console.log(p3)
+            // p1.speak();
+            // p2.speak();
+
+        </script>
+    </body>
+</html> 

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+    
+<hibernate-mapping package="com.jiguiyan.domain">
+
+	<class name="Answer" table="answer">
+	<!-- 	//	content varchar(3000) not null,
+			//	anstime varchar(100) not null,
+			//	agree int default 0,
+			//	solve int default 0 -->
+		<id name="id">
+			<generator class="uuid"></generator>
+		</id>
+		<property name="content" column="content"></property>
+		<property name="anstime" column="anstime"></property>
+		<property name="agree" column="agree"></property>
+		<property name="solve" column="solve"></property>
+		
+		<many-to-one name="user" column="userid" class="User"></many-to-one>
+		<!-- colum为外键的字段名字 -->
+		<many-to-one name="paste" column="pasteid" class="Paste"></many-to-one>
+		
+		
+	</class>
+
+</hibernate-mapping>

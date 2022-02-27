@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>write</title>
+</head>
+<body>
+    <div class="">
+        <p>woshiyizhixiaomaolv</p>
+    </div>
+    <h1 onclick="func()">覆盖下</h1>
+    <script>
+        document.write("我不是");
+        show();
+        function show(){
+            document.write("我是假的覆盖了");
+        }
+        function func(){
+            document.write("我才是真正的覆盖了");
+        }
+    </script>
+</body>
+</html>

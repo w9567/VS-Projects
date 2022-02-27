@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <style>
+        #jishiben{
+            
+            width: 600px;
+            
+            margin: 50px auto;
+        }
+        h1{
+            
+            width: 100%;
+            height: 10%;
+            margin: 10px auto;
+            text-align: center;
+            
+        }
+        input{
+            width: 100%;
+            height: 15%;
+            margin: 10px auto;
+        }
+        #content{
+            border: 1px solid red;
+            width: 100%;
+            height: 65%;
+            margin: 10px auto;
+        }
+        #content li{
+            list-style-type: none;
+            margin-top: 5px ;
+        }
+        #content li:hover.button {
+           display: block;
+        }
+        #footer{
+            border: 1px solid red;
+            width: 100%;
+            height: 10%;
+            margin: 10px auto;
+        }
+        .show{
+            display: none;
+        }
+    </style>
+    <body>
+        <div id="jishiben">
+            <h1>记事本</h1>
+            <input v-model="inputValue" @keyup.enter="add">
+            <div id="content">
+                <ul>
+                    <li v-for="(item,index) in arr" @mouseenter="show(index)">{{index}}    {{item}}
+                        <button v-show="isShow" @click="clear"><span >x</span></button>
+                    </li>
+                </ul>
+            </div>
+            <div id="footer"></div>
+        </div>
+        <script src="vue.js"></script>
+        <script>
+            var app=new Vue({
+                el:'#jishiben',
+                data:{
+                    arr:['xuexi','zaixuexi','haiyaoxuexi'],
+                    inputValue:"请输入",
+                    isShow:false
+                },
+                methods:{
+                    add:function(){
+                        this.arr.push(this.inputValue)
+
+                    },
+                    clear:function(index){
+
+                        this.arr.splice(index,1);
+                    },
+                    show:function(index){
+                        this.isShow=!this.isShow;
+                        
+                       
+
+                        
+                        
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

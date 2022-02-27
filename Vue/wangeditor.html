@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wangEditor</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <p>
+        wangEditor demo
+    </p>
+    <div id="div1">
+        <p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>
+        <p>
+            <img src="http://www.wangeditor.com/imgs/logo.jpeg" />
+        </p>
+    </div>
+
+    <script src="../dist/wangEditor.js"></script>
+    <script>
+        var wangEditor = window.wangEditor
+        var editor = new E('#div1')
+
+        //js
+        
+        editor.customConfig.showLinkImg = false
+        editor.customConfig.uploadImgServer = 'api/v1/upload/uploadLocal'//配置上传到服务器地址
+        editor.customConfig.customUploadImg =  (files, insert) =>{//对上传的图片进行处理，图片上传的方式
+            var data = new FormData()
+            data.append("img", files[0])
+            this.$axios.post("api/v1/upload/uploadLocal", data,).then((res) => {
+                var imgUrl = this.$imgBaseUrl + res.data.data
+                editor.cmd.do('insertHTML', `<img style="width: 200px;height: 200px;" src=${imgUrl} alt="">`)
+            })
+        }
+        editor.create()
+        // editor.config.uploadImgFromMedia = function () {
+        //   // 做调起媒体库UI等的自定义方法
+        //   // 举个栗子，假设通过confirm方法来模拟调用媒体库
+        //   const img = confirm('调用媒体库')
+        //   if (img) {
+        //     const imgUrl = 'https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png'
+        //     // 通过editor.cmd.do方法将媒体库回调的链接插入编辑器内
+        //     editor.cmd.do(
+        //       'insertHTML',
+        //       `<img src="${imgUrl}" style="max-width:100%;"/>`
+        //     )
+        //   } else {
+        //     console.log('cancel')
+        //   }
+        // }
+        // editor.create()
+    </script>
+</body>
+
+</html>

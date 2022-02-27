@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>表单test</title>
+    </head>
+    
+    <style>
+        .inp{
+            overflow: hidden;
+        }
+        label{
+            width: 150px;
+            float: left;
+            text-align: right;
+        }
+        .test1{
+            text-decoration: line-through;
+        }
+        .test2{
+            font-style: italic;
+        }
+        .test3{
+            font-style: oblique;
+        }
+    </style>
+    <body>
+        <input type="checkbox" name="ck" checked="checked"/> 
+        <input type="checkbox" name="ck1"/> 
+        <input type="checkbox" name="ck2"/> 
+
+        <input type="radio" name="sex" value="v"/>
+        <input type="radio" name="sex"value="v" />
+
+        <select name="select" >
+            <option value="1" >福州</option>
+            <option value="2" selected="selected" >厦门</option>
+            <option value="3">深圳</option>
+        </select>
+        <input type="button" value="提交1"/>
+        <button>提交2</button>
+        <input type="image"  src="../images/1.jpg" width="100px" height="100px" alt="发财啊" title="发财呀" />
+
+        <table width="100" border="1" height="100">
+            <caption>表格标题</caption>
+            <tr><th>表头一</th><th>表头二</th></tr>
+             
+            <tr><td cols="2">表尾</td></tr>
+        </table>
+        <br/>
+        <form method="POST" action="#">
+            <div class="inp">
+                <label>请输入账号：</label>
+                <input type="text" name="username" value="账号" />
+            </div>
+            <div class="inp">
+                <label>请输入密码：</label>
+                <input type="password" name="password"  />
+            </div>
+            <div class="inp">
+                <label>请再次输入密码：</label>
+                <input type="password" name="password"  />
+            </div>
+            <input type="submit" value="注册" />
+        </form>
+        <del>test</del>
+        <div class="test1" >test</div>
+        <div >dasdasdasddas</div>
+        <div class="test2">dasdasdasddas</div>
+        <div class="test3">dasdasdasddas</div>
+        <div id="getdate"></div>
+        <script>
+            var date=new Date();
+            var thisdate=document.getElementById("getdate");
+            thisdate.innerHTML=date.toLocaleString();
+            thisdate.innerHTML=date.getDate();
+        </script>
+    </body>
+</html>

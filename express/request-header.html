@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <style>
+        #result{
+            width: 200px;
+            height: 100px;
+            border: 1px solid red ;
+        }
+    </style>
+    <body>
+        <div id="result"></div>
+        <script>
+            const result =document.getElementById('result');
+            
+
+            result.addEventListener('mouseover',function(){
+                const xhr=new XMLHttpRequest();
+                xhr.open('POST','http://127.0.0.1:8000/server');
+                //请求头
+                xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                
+
+
+
+                //请求体
+                xhr.send('1121312');
+
+                xhr.onreadystatechange=function(){
+                    if(xhr.readyState===4){
+                        if(xhr.status>=200 && xhr.status<300){
+                            result.innerHTML=xhr.response;
+                    }
+                }
+                }
+            })
+            
+
+        </script>
+    </body>
+</html>

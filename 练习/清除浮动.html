@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .boxs {
+            overflow: hidden;
+            zoom: 1;
+        }
+        /* .box:after {
+            content: "";
+            clear: both;
+            height: 0;
+            overflow: hidden;
+            visibility: hidden;
+        } */
+        .box {
+            width: 300px;
+            height: 100px;
+        }
+
+        .box:nth-child(1) {
+            background-color: burlywood;
+        }
+
+        .box:nth-child(2) {
+            background-color: rgb(55, 218, 218);
+        }
+
+        .box:nth-child(3) {
+            background-color: rgb(223, 80, 80);
+        }
+
+        .c1 {
+            float: left;
+        }
+
+        .c2 {
+            float: right;
+        }
+
+        .c3 {
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="boxs">
+        <div class="box c1">eawdasdawdaw</div>
+        <div class="box c2">12312454645654</div>
+        <div class="box c3">213124fdsfsfwe</div>
+    </div>
+    <div class="buttom">最下面</div>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>jQuery-request</title>
+        
+    </head>
+    <body>
+        <button>fetch函数请求Ajax</button>
+        <script>
+            const btns=document.querySelectorAll('button');
+            btns[0].onclick=function(){
+                fetch('http://127.0.0.1:8000/fetch-server',{
+                    //请求方法
+                    method:'POST',
+                    //请求头
+                    headers:{
+                        name:'fetch-server-1'
+                    },
+                    //请求体
+                    body:'username=admin&password=123456'
+                }).then(response=>{
+                    // console.log('response');
+                    return response.json();
+                }).then(response=>{
+                    console.log('response');
+                });
+
+            }
+            
+        </script>
+    </body>
+</html>

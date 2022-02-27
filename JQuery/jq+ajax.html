@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title></title>
+    </head>
+    <body>
+        <button  id="get">点击按钮发送get请求并返回数据</button>
+        <div id="result"></div>
+        <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+        <script>
+            $(function(){
+                $("#get").click(function(){
+                    console.log("点击发送了");
+                    $.get("data.php",function(data,status){
+                        alert("数据："+data+"\n状态："+status);
+                        console.log("发送成功了");
+                    })
+
+
+                    // $("#result").load("get-data.js");
+                })
+            })
+        </script>
+    </body>
+</html>

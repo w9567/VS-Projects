@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <body>
+        <div id="result"></div>
+        <script type="text/babel">
+
+            class MyComponent extends React.Component{
+                constructor(props){
+                    super(props)
+                    this.state={
+                        isHot:true
+                    }
+                    this.show=this.change.bind(this)
+                    // console.log(this.state)
+                }
+                render(){
+                    
+                    return <div>
+                                <h1 onClick={this.show}>今天天气很{this.state.isHot?'炎热':'凉爽'}</h1>
+                           </div>
+                }
+                change(){
+                    // console.log(this)
+                    // console.log(this.state.isHot)
+                    const isHot=this.state.isHot
+                    this.setState({isHot:!isHot})
+                }
+            }
+            ReactDOM.render(<MyComponent/>,document.getElementById("result"))
+            
+        </script>
+    </body>
+</html> 

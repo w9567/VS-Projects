@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <title>jsonp-检查重名</title>
+    <style>
+
+    </style>
+    <body>
+        用户名：<input type="text" name="username" placeholder="请输入用户名">
+        <p></p>
+        <script>
+            const input=document.querySelector('input');
+            const p=document.querySelector('p');
+            input.onblur=function(){
+                let username=input.value;
+                console.log(username);
+                const script=document.createElement('script');
+                script.src='http://127.0.0.1:8000/check-server';
+                document.body.appendChild(script);
+            }
+            function handle(data){
+                input.style.border="1px solid red";
+                p.innerHTML=data.msg;
+            }
+        </script>
+    </body>
+</html>

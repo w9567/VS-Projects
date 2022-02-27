@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="result">
+        <p>我是一只小毛驴</p>
+    </div>
+    <button>ajax修改</button>
+    <script>
+        const x =document.getElementById("result");
+        const btn =document.getElementsByTagName("button")[0];
+        btn.onclick=function(){
+            console.log("wohini");
+            var xmlhttp;
+            if (window.XMLHttpRequest)
+            {
+                //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+                xmlhttp=new XMLHttpRequest();
+            }
+            else
+            {
+                // IE6, IE5 浏览器执行代码
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function()
+            {
+                if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                {
+                    x.innerHTML=xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET",url,true);
+            
+            xmlhttp.send();
+            
+        }
+    </script>
+    <script type="text/javascript" src="../AJAX/ajax-1.xml"></script>
+</body>
+</html>

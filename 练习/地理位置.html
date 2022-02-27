@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>zdsadjas</div>
+    <script>
+        //判断浏览器是否支持Geolocation API
+        if ('geolocation' in navigator) {
+          //调用navigator.geolocation.getCurrentPosition
+          navigator.geolocation.getCurrentPosition(successCB, errorCB,{
+            // 指示浏览器获取高精度的位置，默认为false
+            enableHighAccuracy: true,
+            // 指定获取地理位置的超时时间，默认不限时，单位为毫秒
+            timeout: 5000,
+            // 最长有效期，在重复获取地理位置时，此参数指定多久再次获取位置。
+            maximumAge: 3000
+          })
+        } else {
+          alert('不支持geolocation')
+        }
+        //成功时的回调函数
+        function successCB(res) {
+          console.log('维度' + res.coords.latitude);   //维度39.8218870257394
+          console.log('经度' + res.coords.longitude);  //经度116.28083042845932
+        } 
+        //失败时的回调函数
+        function errorCB(res) {
+          console.log(res,'失败回调')
+        }
+      </script>
+</body>
+</html>

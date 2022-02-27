@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+	
+	<struts>
+		<!-- 动态方法调用 -->
+		<constant name="struts.devMode" value="true"></constant>
+		<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+		
+		
+		<!-- 让spring来创建Action -->
+		<constant name="struts.objectFactory" value="spring"></constant>
+		
+		<package name="SSH_FourmBack" namespace="/" extends="struts-default">
+			<!-- 允许所有方法 -->
+			<global-allowed-methods>regex:.*</global-allowed-methods>
+			<action name="GetDataAction_*" class="com.guiyan.web.GetDataAction" method="{1}">
+				<result name="welcome">/welcome.jsp</result>
+				<result name="index">/index.jsp</result>
+				
+				<result name="allCountMap">/all-count-map.jsp</result>
+				<result name="allCountDetailMap">/all-count-detail-map.jsp</result>
+				<result name="allCountAWeekUserMap">/all-count-aweek-user-map.jsp</result>
+				<result name="allCountAWeekDetailMap">/all-count-aweek-detail-map.jsp</result>
+				
+				<result name="allCountDetailRadarMap">/all-count-detail-radar-map.jsp</result>
+				<result name="allCountRadarMap">/all-count-radar-map.jsp</result>
+			</action>
+			<action name="UserAction_*" class="com.guiyan.web.UserAction" method="{1}">
+				<result name="userList">/user-list.jsp</result>
+				<result name="userEdit">/user-edit.jsp</result>
+				<result name="close">/close.jsp</result>
+			</action>
+			<action name="PasteAction_*" class="com.guiyan.web.PasteAction" method="{1}">
+				<result name="pasteList">/paste-list.jsp</result>
+				<result name="pasteEdit">/paste-edit.jsp</result>
+				<result name="close">/close.jsp</result>
+			</action>
+			
+			
+		</package>
+		
+	</struts>

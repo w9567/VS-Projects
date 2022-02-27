@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>FileReader</title>
+</head>
+<body>
+    <input id="input" type="file">
+    <script>
+        const input = document.querySelector('input[type=file]')
+        input.addEventListener('change', ()=>{
+            console.log( input.files ) //上传文件FileList对象
+            const reader = new FileReader()
+            //readAsDataURL()方法：读取文件内容，结果用data:url的字符串形式表示
+            reader.readAsDataURL(input.files[0]) // input.files[0]为第一个文件
+            // 读取成功回调
+            reader.onload = ()=>{
+                // 创建img节点
+                const img = new Image()
+                // 将读取的文件内容结果用data:url的字符串形式表示来赋值给img的src属性
+                img.src = reader.result// reader.result为获取结果
+                // 追加节点
+                document.body.appendChild(img)  
+            }
+        }, false)
+</script>
+</body>
+</html>

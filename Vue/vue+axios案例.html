@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        
+    </head>
+    <style></style>
+        <body>
+            <input type="button" value="get请求" id="get">
+            <input type="button" value="post请求" id="post">
+            <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.js"></script>
+            <script>
+                const get =document.getElementById("get");
+                const post =document.getElementById("post");
+                get.onclick=function(){
+                    axios.get("https://autumnfish.cn/api/joke/list?num=6")
+                    .then(function(response){
+                        console.log(response);
+                    },function(err){
+                        console.log(err);
+                    })
+                }
+                post.onclick=function(){
+                    axios.post("https://autumnfish.cn/api/user/reg")
+                    .then(function(response){
+                        console.log(response);
+                    })
+                }
+            </script>
+        </body>
+</html>
